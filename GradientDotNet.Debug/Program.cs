@@ -20,6 +20,7 @@ static async Task SaveAsMagnitudesImage(string path, IReadOnlyList<float> gradX,
 // Download greyscale image to test with
 using var http = new HttpClient();
 
+// Davidwkennedy, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons
 await using var raw = await http.GetStreamAsync("https://upload.wikimedia.org/wikipedia/commons/3/3f/Bikesgray.jpg");
 
 using var img = Image.Load<L8>(raw);
