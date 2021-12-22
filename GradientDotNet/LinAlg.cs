@@ -18,11 +18,11 @@ namespace GradientDotNet
                         {
                             var nextR = Math.Min(Math.Max(0, kR - kCenterR + r), rows - 1);
                             var nextC = Math.Min(Math.Max(0, kC - kCenterC + c), cols - 1);
-                            sum += flippedKernel[kR * kRows + kC] * src[nextR * rows + nextC];
+                            sum += flippedKernel[kR * kCols + kC] * src[nextR * cols + nextC];
                         }
                     }
 
-                    dst[r * rows + c] = sum;
+                    dst[r * cols + c] = sum;
                 }
             }
         }
