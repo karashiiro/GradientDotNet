@@ -9,7 +9,7 @@
         ///
         /// Referenced from <see href="https://www.mathworks.com/help/images/ref/imgradient.html"></see>.
         /// </summary>
-        /// <param name="src">The source image.</param>
+        /// <param name="src">The single-channel source image.</param>
         /// <param name="dstX">The destination image, representing the gradient in the x-direction.</param>
         /// <param name="dstY">The destination image, representing the gradient in the y-direction.</param>
         /// <param name="rows">The number of rows in the image.</param>
@@ -27,7 +27,7 @@
         ///
         /// Referenced from <see href="https://www.mathworks.com/help/images/ref/imgradient.html"></see>.
         /// </summary>
-        /// <param name="src">The source image.</param>
+        /// <param name="src">The single-channel source image.</param>
         /// <param name="dstX">The destination image, representing the gradient in the x-direction.</param>
         /// <param name="dstY">The destination image, representing the gradient in the y-direction.</param>
         /// <param name="rows">The number of rows in the image.</param>
@@ -41,7 +41,7 @@
         /// <summary>
         /// Calculates the Sobel operator gradients of the source image in each direction using convolution.
         /// </summary>
-        /// <param name="src">The source image.</param>
+        /// <param name="src">The single-channel source image.</param>
         /// <param name="dstX">The destination image, representing the gradient in the x-direction.</param>
         /// <param name="dstY">The destination image, representing the gradient in the y-direction.</param>
         /// <param name="rows">The number of rows in the image.</param>
@@ -55,7 +55,7 @@
         /// <summary>
         /// Calculates the Prewitt operator gradients of the source image in each direction using convolution.
         /// </summary>
-        /// <param name="src">The source image.</param>
+        /// <param name="src">The single-channel source image.</param>
         /// <param name="dstX">The destination image, representing the gradient in the x-direction.</param>
         /// <param name="dstY">The destination image, representing the gradient in the y-direction.</param>
         /// <param name="rows">The number of rows in the image.</param>
@@ -69,7 +69,7 @@
         /// <summary>
         /// Calculates the Roberts cross operator gradients of the source image in each direction using convolution.
         /// </summary>
-        /// <param name="src">The source image.</param>
+        /// <param name="src">The single-channel source image.</param>
         /// <param name="dstX">The destination image, representing the gradient in the x-direction.</param>
         /// <param name="dstY">The destination image, representing the gradient in the y-direction.</param>
         /// <param name="rows">The number of rows in the image.</param>
