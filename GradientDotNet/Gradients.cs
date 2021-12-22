@@ -21,6 +21,22 @@
         }
 
         /// <summary>
+        /// Calculates the central difference gradients of the source image in each direction. The central
+        /// difference gradient of each pixel in the image is the weighted difference between neighboring
+        /// pixels.
+        ///
+        /// Referenced from <see href="https://www.mathworks.com/help/images/ref/imgradient.html"></see>.
+        /// </summary>
+        /// <param name="src">The single-channel source image.</param>
+        /// <param name="dstX">The destination image, representing the gradient in the x-direction.</param>
+        /// <param name="dstY">The destination image, representing the gradient in the y-direction.</param>
+        public static void CentralDifference(IImage src, IImage dstX, IImage dstY)
+        {
+            CentralDifferenceGradient.CalculateX(src, dstX);
+            CentralDifferenceGradient.CalculateY(src, dstY);
+        }
+
+        /// <summary>
         /// Calculates the intermediate difference gradients of the source image in each direction. The
         /// intermediate difference gradient of each pixel in the image is the difference between
         /// an adjacent pixel and the current pixel.
@@ -39,6 +55,22 @@
         }
 
         /// <summary>
+        /// Calculates the intermediate difference gradients of the source image in each direction. The
+        /// intermediate difference gradient of each pixel in the image is the difference between
+        /// an adjacent pixel and the current pixel.
+        ///
+        /// Referenced from <see href="https://www.mathworks.com/help/images/ref/imgradient.html"></see>.
+        /// </summary>
+        /// <param name="src">The single-channel source image.</param>
+        /// <param name="dstX">The destination image, representing the gradient in the x-direction.</param>
+        /// <param name="dstY">The destination image, representing the gradient in the y-direction.</param>
+        public static void IntermediateDifference(IImage src, IImage dstX, IImage dstY)
+        {
+            IntermediateDifferenceGradient.CalculateX(src, dstX);
+            IntermediateDifferenceGradient.CalculateY(src, dstY);
+        }
+
+        /// <summary>
         /// Calculates the Sobel operator gradients of the source image in each direction using convolution.
         /// </summary>
         /// <param name="src">The single-channel source image.</param>
@@ -50,6 +82,18 @@
         {
             SobelGradient.CalculateX(src, dstX, rows, cols);
             SobelGradient.CalculateY(src, dstY, rows, cols);
+        }
+
+        /// <summary>
+        /// Calculates the Sobel operator gradients of the source image in each direction using convolution.
+        /// </summary>
+        /// <param name="src">The single-channel source image.</param>
+        /// <param name="dstX">The destination image, representing the gradient in the x-direction.</param>
+        /// <param name="dstY">The destination image, representing the gradient in the y-direction.</param>
+        public static void Sobel(IImage src, IImage dstX, IImage dstY)
+        {
+            SobelGradient.CalculateX(src, dstX);
+            SobelGradient.CalculateY(src, dstY);
         }
 
         /// <summary>
@@ -67,6 +111,18 @@
         }
 
         /// <summary>
+        /// Calculates the Prewitt operator gradients of the source image in each direction using convolution.
+        /// </summary>
+        /// <param name="src">The single-channel source image.</param>
+        /// <param name="dstX">The destination image, representing the gradient in the x-direction.</param>
+        /// <param name="dstY">The destination image, representing the gradient in the y-direction.</param>
+        public static void Prewitt(IImage src, IImage dstX, IImage dstY)
+        {
+            PrewittGradient.CalculateX(src, dstX);
+            PrewittGradient.CalculateY(src, dstY);
+        }
+
+        /// <summary>
         /// Calculates the Roberts cross operator gradients of the source image in each direction using convolution.
         /// </summary>
         /// <param name="src">The single-channel source image.</param>
@@ -78,6 +134,18 @@
         {
             RobertsCrossGradient.CalculateX(src, dstX, rows, cols);
             RobertsCrossGradient.CalculateY(src, dstY, rows, cols);
+        }
+
+        /// <summary>
+        /// Calculates the Roberts cross operator gradients of the source image in each direction using convolution.
+        /// </summary>
+        /// <param name="src">The single-channel source image.</param>
+        /// <param name="dstX">The destination image, representing the gradient in the x-direction.</param>
+        /// <param name="dstY">The destination image, representing the gradient in the y-direction.</param>
+        public static void RobertsCross(IImage src, IImage dstX, IImage dstY)
+        {
+            RobertsCrossGradient.CalculateX(src, dstX);
+            RobertsCrossGradient.CalculateY(src, dstY);
         }
     }
 }

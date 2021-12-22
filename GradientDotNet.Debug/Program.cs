@@ -1,4 +1,5 @@
 ﻿using GradientDotNet;
+using GradientDotNet.Debug;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 
@@ -35,32 +36,35 @@ for (var r = 0; r < img.Height; r++)
     }
 }
 
+// Create a shim for the buffer
+var greyShim = new ShimImage(greyPixels, img.Height, img.Width);
+
 // Calculate and save central difference gradient magnitudes image
-var centDiffX = new float[greyPixels.Length];
-var centDiffY = new float[greyPixels.Length];
-Gradients.CentralDifference(greyPixels, centDiffX, centDiffY, img.Height, img.Width);
-await SaveAsMagnitudesImage("central_diff.jpg", centDiffX, centDiffY, img.Height, img.Width);
+var centDiffX = new ShimImage(new float[greyPixels.Length], img.Height, img.Width);
+var centDiffY = new ShimImage(new float[greyPixels.Length], img.Height, img.Width);
+Gradients.CentralDifference(greyShim, centDiffX, centDiffY);
+await SaveAsMagnitudesImage("central_diff.jpg", centDiffX.Buffer, centDiffY.Buffer, img.Height, img.Width);
 
 // Calculate and save intermediate difference gradient magnitudes image
-var intDiffX = new float[greyPixels.Length];
-var intDiffY = new float[greyPixels.Length];
-Gradients.IntermediateDifference(greyPixels, intDiffX, intDiffY, img.Height, img.Width);
-await SaveAsMagnitudesImage("intermediate_diff.jpg", intDiffX, intDiffY, img.Height, img.Width);
+var intDiffX = new ShimImage(new float[greyPixels.Length], img.Height, img.Width);
+var intDiffY = new ShimImage(new float[greyPixels.Length], img.Height, img.Width);
+Gradients.IntermediateDifference(greyShim, intDiffX, intDiffY);
+await SaveAsMagnitudesImage("intermediate_diff.jpg", intDiffX.Buffer, intDiffY.Buffer, img.Height, img.Width);
 
 // Calculate and save Sobel magnitudes image
-var sobelX = new float[greyPixels.Length];
-var sobelY = new float[greyPixels.Length];
-Gradients.Sobel(greyPixels, sobelX, sobelY, img.Height, img.Width);
-await SaveAsMagnitudesImage("sobel.jpg", sobelX, sobelY, img.Height, img.Width);
+var sobelX = new ShimImage(new float[greyPixels.Length], img.Height, img.Width);
+var sobelY = new ShimImage(new float[greyPixels.Length], img.Height, img.Width);
+Gradients.Sobel(greyShim, sobelX, sobelY);
+await SaveAsMagnitudesImage("sobel.jpg", sobelX.Buffer, sobelY.Buffer, img.Height, img.Width);
 
 // Calculate and save Prewitt magnitudes image
-var prewittX = new float[greyPixels.Length];
-var prewittY = new float[greyPixels.Length];
-Gradients.Prewitt(greyPixels, prewittX, prewittY, img.Height, img.Width);
-await SaveAsMagnitudesImage("prewitt.jpg", prewittX, prewittY, img.Height, img.Width);
+var prewittX = new ShimImage(new float[greyPixels.Length], img.Height, img.Width);
+var prewittY = new ShimImage(new float[greyPixels.Length], img.Height, img.Width);
+Gradients.Prewitt(greyShim, prewittX, prewittY);
+await SaveAsMagnitudesImage("prewitt.jpg", prewittX.Buffer, prewittY.Buffer, img.Height, img.Width);
 
 // Calculate and save Roberts cross magnitudes image
-var robertsCrossX = new float[greyPixels.Length];
-var robertsCrossY = new float[greyPixels.Length];
-Gradients.RobertsCross(greyPixels, robertsCrossX, robertsCrossY, img.Height, img.Width);
-await SaveAsMagnitudesImage("roberts_cross.jpg", robertsCrossX, robertsCrossY, img.Height, img.Width);
+var robertsCrossX = new ShimImage(new float[greyPixels.Length], img.Height, img.Width);
+var robertsCrossY = new ShimImage(new float[greyPixels.Length], img.Height, img.Width);
+Gradients.RobertsCross(greyShim, robertsCrossX, robertsCrossY);
+await SaveAsMagnitudesImage("roberts_cross.jpg", robertsCrossX.Buffer, robertsCrossY.Buffer, img.Height, img.Width);

@@ -23,6 +23,18 @@ var centDiffY = new float[greyPixels.Length];
 Gradients.CentralDifference(greyPixels, centDiffX, centDiffY, img.Height, img.Width);
 ```
 
+You can also create an implementation of `IImage` that maps get/set calls to another image
+library to calls that this library can understand, and use that implementation instead of
+a direct buffer:
+```csharp
+var greyImage = new YourImageInterfaceImplementation(img);
+
+// Or intermediate difference, or Sobel...
+var centDiffX = new YourImageInterfaceImplementation(centDiffXImg);
+var centDiffY = new YourImageInterfaceImplementation(centDiffYImg);
+Gradients.CentralDifference(greyImage, centDiffX, centDiffY);
+```
+
 Alternatively, you can use the X and Y gradient calculation functions directly, as follows:
 ```
 var centDiffX = new float[greyPixels.Length];

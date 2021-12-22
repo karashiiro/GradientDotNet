@@ -19,9 +19,19 @@
             LinAlg.Filter(flippedOperatorX, 3, 3, 1, 1, src, dst, rows, cols);
         }
 
+        public static void CalculateX(IImage src, IImage dst)
+        {
+            LinAlg.Filter(flippedOperatorX, 3, 3, 1, 1, src, dst);
+        }
+
         public static void CalculateY(float[] src, float[] dst, int rows, int cols)
         {
             LinAlg.Filter(flippedOperatorY, 3, 3, 1, 1, src, dst, rows, cols);
+        }
+
+        public static void CalculateY(IImage src, IImage dst)
+        {
+            LinAlg.Filter(flippedOperatorY, 3, 3, 1, 1, src, dst);
         }
     }
 }
