@@ -16,7 +16,7 @@ namespace GradientDotNet
                 // Calculate gradient for the middle columns
                 for (var c = 1; c < cols - 1; c++)
                 {
-                    dst[r * rows + c] = (src[r * cols + c + 1] - src[r * cols + (c - 1)]) / 2;
+                    dst[r * cols + c] = (src[r * cols + c + 1] - src[r * cols + (c - 1)]) / 2;
                 }
 
                 // Calculate gradient for the last column

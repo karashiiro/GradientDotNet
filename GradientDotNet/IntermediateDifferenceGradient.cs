@@ -14,7 +14,7 @@
                 // Calculate gradient for the middle columns
                 for (var c = 1; c < cols - 1; c++)
                 {
-                    dst[r * rows + c] = src[r * cols + c + 1] - src[r * cols + c];
+                    dst[r * cols + c] = src[r * cols + c + 1] - src[r * cols + c];
                 }
 
                 // Calculate gradient for the last column
