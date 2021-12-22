@@ -1,6 +1,9 @@
 # GradientDotNet
 Image gradient functions implemented in C#.
 
+## Installation
+`Install-Package GradientDotNet`
+
 ## Gradient algorithms
 - Central difference
 - Intermediate difference
