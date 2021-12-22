@@ -36,7 +36,7 @@ Gradients.CentralDifference(greyImage, centDiffX, centDiffY);
 ```
 
 Alternatively, you can use the X and Y gradient calculation functions directly, as follows:
-```
+```csharp
 var centDiffX = new float[greyPixels.Length];
 var centDiffY = new float[greyPixels.Length];
 CentralDifferenceGradient.CalculateX(greyPixels, centDiffX, img.Height, img.Width);
